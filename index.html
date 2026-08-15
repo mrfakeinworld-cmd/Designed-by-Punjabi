@@ -1,287 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+>
 
-    <title>Huda Zahra ❤️</title>
+<title>Huda Zahra ❤️</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         PASSWORD SCREEN
-    ========================== -->
+<div id="hearts"></div>
 
-    <main id="passwordScreen" class="screen active">
+<!-- =========================
+     PASSWORD SCREEN
+========================== -->
 
-        <div class="content">
+<main id="passwordScreen" class="screen active">
 
-            <div class="heart">❤️</div>
+    <section class="glass content">
 
-            <h1>Something Special Awaits...</h1>
+        <div class="bigHeart">❤️</div>
 
-            <p>Enter the password to continue</p>
+        <h1>
+            Something Special<br>
+            Awaits...
+        </h1>
 
-            <input
-                type="password"
-                id="passwordInput"
-                placeholder="Enter password"
-                autocomplete="off"
-            >
+        <p>Enter the password to continue</p>
 
-            <button id="passwordButton">
-                Unlock ❤️
+        <input
+            id="passwordInput"
+            type="password"
+            placeholder="Enter password"
+            autocomplete="off"
+        >
+
+        <button id="passwordButton" class="primary">
+            Unlock ❤️
+        </button>
+
+        <p id="passwordError" class="error"></p>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     SURPRISE SCREEN
+========================== -->
+
+<main id="surpriseScreen" class="screen">
+
+    <section class="glass content">
+
+        <div class="emojiIcon">🎁</div>
+
+        <h1>Do you want a surprise?</h1>
+
+        <p>
+            Something special has been waiting for you...
+        </p>
+
+        <div class="buttons">
+
+            <button id="surpriseYes" class="primary">
+                YES ❤️
             </button>
 
-            <p id="passwordError"></p>
-
-        </div>
-
-    </main>
-
-
-    <!-- =========================
-         SURPRISE SCREEN
-    ========================== -->
-
-    <main id="surpriseScreen" class="screen">
-
-        <div class="content">
-
-            <div class="gift">🎁</div>
-
-            <h1>Do you want a surprise?</h1>
-
-            <div class="choiceArea">
-
-                <button id="surpriseYes" class="yesButton">
-                    YES ❤️
-                </button>
-
-                <button id="surpriseNo" class="noButton">
-                    NO 😏
-                </button>
-
-            </div>
-
-        </div>
-
-    </main>
-
-
-    <!-- =========================
-         CAKE QUESTION SCREEN
-    ========================== -->
-
-    <main id="cakeQuestionScreen" class="screen">
-
-        <div class="content">
-
-            <div id="mysteryBox">
-                🎁
-            </div>
-
-            <h1>Do you want cake? 🎂</h1>
-
-            <div class="choiceArea">
-
-                <button id="cakeYes" class="yesButton">
-                    YES 🎂
-                </button>
-
-                <button id="cakeNo" class="noButton">
-                    NO 😏
-                </button>
-
-            </div>
-
-        </div>
-
-    </main>
-
-
-    <!-- =========================
-         CAKE SCREEN
-    ========================== -->
-
-    <main id="cakeScreen" class="screen">
-
-        <div id="cakeScene">
-
-            <div id="cakeContainer">
-                🎂
-            </div>
-
-            <h2>Make Your Wish ✨</h2>
-
-            <button id="wishButton">
-                ✨ Make Your Wish ✨
+            <button id="surpriseNo" class="secondary">
+                NO 😏
             </button>
 
         </div>
 
-    </main>
+    </section>
+
+</main>
 
 
-    <!-- =========================
-         WISH SCREEN
-    ========================== -->
+<!-- =========================
+     MYSTERY BOX SCREEN
+========================== -->
 
-    <main id="wishScreen" class="screen">
+<main id="boxScreen" class="screen">
 
-        <div class="content">
+    <section class="content">
 
-            <h1>Make a Wish ✨</h1>
+        <p class="eyebrow">
+            A little surprise for you...
+        </p>
 
-            <p>
-                Close your eyes...<br>
-                Make your wish... ❤️
-            </p>
+        <h1>Open the box 🎁</h1>
 
-            <p class="blowInstruction">
-                When your wish is done,<br>
-                tap the candles to blow them out 🕯️
-            </p>
+        <div
+            id="giftBox"
+            class="giftBox"
+            role="button"
+            tabindex="0"
+            aria-label="Open gift box"
+        >
 
-            <button id="blowButton">
-                💨 Blow the Candles
-            </button>
+            <div class="boxLid">
+                <span>❤️</span>
+            </div>
+
+            <div class="boxBody"></div>
+
+            <div class="boxRibbonV"></div>
+
+            <div class="boxRibbonH"></div>
+
+            <div class="sparkle s1">✦</div>
+            <div class="sparkle s2">✦</div>
+            <div class="sparkle s3">✦</div>
 
         </div>
 
-    </main>
+        <p id="boxHint">
+            Tap the box 🎁
+        </p>
+
+        <button id="openBoxButton" class="primary">
+            Open it ❤️
+        </button>
+
+    </section>
+
+</main>
 
 
-    <!-- =========================
-         CAKE CUT SCREEN
-    ========================== -->
+<!-- =========================
+     CAKE SCREEN
+========================== -->
 
-    <main id="cutScreen" class="screen">
+<main id="cakeScreen" class="screen">
 
-        <div class="content">
+    <section class="content cakeStage">
 
-            <div id="cutCake">
-                🎂
+        <p class="eyebrow">
+            Surprise! ❤️
+        </p>
+
+        <div id="cake" class="cake">
+
+            <div class="candles">
+
+                <div class="candle c1">
+                    <span class="flame"></span>
+                </div>
+
+                <div class="candle c2">
+                    <span class="flame"></span>
+                </div>
+
+                <div class="candle c3">
+                    <span class="flame"></span>
+                </div>
+
             </div>
 
-            <div id="knife">
+            <div class="cakeTop"></div>
+
+            <div class="cream"></div>
+
+            <div class="cakeMiddle"></div>
+
+            <div class="cream lower"></div>
+
+            <div class="cakeBottom"></div>
+
+            <div class="cakePlate"></div>
+
+        </div>
+
+        <h1>
+            Make Your Wish ✨
+        </h1>
+
+        <p>
+            Take a moment, close your eyes and make a wish.
+        </p>
+
+        <button id="wishButton" class="primary">
+            ✨ Make Your Wish ✨
+        </button>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     WISH SCREEN
+========================== -->
+
+<main id="wishScreen" class="screen">
+
+    <section class="glass content">
+
+        <div class="wishGlow">
+            ✨
+        </div>
+
+        <h1>
+            Make a Wish ✨
+        </h1>
+
+        <p>
+            Close your eyes...<br>
+            Make your wish... ❤️
+        </p>
+
+        <p class="blowInstruction">
+            When your wish is done,<br>
+            tap the button to blow out the candles 🕯️
+        </p>
+
+        <button id="blowButton" class="primary">
+            💨 Blow the Candles
+        </button>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     CUT CAKE SCREEN
+========================== -->
+
+<main id="cutScreen" class="screen">
+
+    <section class="content cutStage">
+
+        <p class="eyebrow">
+            One last little surprise...
+        </p>
+
+        <div class="cutCakeWrap">
+
+            <div id="cutCake" class="cutCake">
+
+                <div class="slicePiece">
+
+                    <div class="sliceTop"></div>
+
+                    <div class="sliceBody"></div>
+
+                </div>
+
+
+                <div class="wholeCake">
+
+                    <div class="cutCakeTop"></div>
+
+                    <div class="cutCream"></div>
+
+                    <div class="cutCakeBody"></div>
+
+                    <div class="cutCream bottom"></div>
+
+                    <div class="cutCakeBase"></div>
+
+                </div>
+
+            </div>
+
+
+            <div id="knife" class="knife">
                 🔪
             </div>
 
-            <p id="cutMessage">
-                Make a wish come true... ❤️
+        </div>
+
+
+        <p id="cutMessage">
+            Make a wish come true... ❤️
+        </p>
+
+
+        <button id="cutButton" class="primary">
+            🔪 Cut the Cake
+        </button>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     MESSAGE SCREEN
+========================== -->
+
+<main id="messageScreen" class="screen">
+
+    <section class="messageContainer">
+
+        <h1>
+            My Wish Is... 💌
+        </h1>
+
+
+        <div class="letter">
+
+            <p>
+                Happy Birthday Mdm g ❤️🥰 So it's your birthday 🎂.
+                I wish this year will bring lot's of happiness in your
+                life 🥰
             </p>
 
-        </div>
+            <p>
+                I hope this year will be the best year of Life 💖 bcz
+                is mein my jo ap k sath houn ga 😅😉
+            </p>
 
-    </main>
+            <p>
+                You are the best person 💝💞 The person who made my life
+                so much better and beautiful ❤️❤️
+            </p>
 
+            <p>
+                I still remember the day you came into my life and make
+                it beautiful ❤️
+            </p>
 
-    <!-- =========================
-         MESSAGE SCREEN
-    ========================== -->
+            <p>
+                I didn't imagine that a single person can make you this
+                much Happy 😊🥰
+            </p>
 
-    <main id="messageScreen" class="screen">
+            <p>
+                But you prove me wrong by giving alot of love and
+                happiness 😊🥰
+            </p>
 
-        <div class="messageContainer">
+            <p>
+                I Can proudly say that you are The most important part
+                of my life ❤️🧬
+            </p>
 
-            <h1>My Wish Is... 💌</h1>
+            <p>
+                Without you my life is nothing 💞😚
+            </p>
 
-            <div class="letter">
+            <p>
+                You are the best person a best lover and a best PARTNER
+                😘💋
+                (ik ap bolein gi esa nhi hy pr dil kia to likh dia bss
+                🥲 🥲)
+            </p>
 
-                <p>
-                    Happy Birthday Mdm g ❤️🥰 So it's your birthday 🎂.
-                    I wish this year will bring lot's of happiness in your
-                    life 🧬🥰
-                </p>
+            <p>
+                Without you my life is incomplete 💖💞
+            </p>
 
-                <p>
-                    I hope this year will be the best year of Life 💖 bcz
-                    is mein my jo ap k sath houn ga 😅😉
-                </p>
+            <p>
+                I Am very Thankful to Allah for Making me in love with
+                the life Right person 💋💖
+            </p>
 
-                <p>
-                    You are the best person 💝💞 The person who made my life
-                    so much better and beautiful ❤️❤️
-                </p>
-
-                <p>
-                    I still remember the day you came into my life and make
-                    it beautiful ❤️
-                </p>
-
-                <p>
-                    I didn't imagine that a single person can make you this
-                    much Happy 😊🥰
-                </p>
-
-                <p>
-                    But you prove me wrong by giving alot of love and
-                    happiness 😊🥰
-                </p>
-
-                <p>
-                    I Can proudly say that you are The most important part
-                    of my life ❤️🧬
-                </p>
-
-                <p>
-                    Without you my life is nothing 💞😚
-                </p>
-
-                <p>
-                    You are the best person a best lover and a best PARTNER
-                    😘💋
-                    (ik ap bolein gi esa nhi hy pr dil kia to likh dia bss
-                    🥲 🥲)
-                </p>
-
-                <p>
-                    Without you my life is incomplete 💖💞
-                </p>
-
-                <p>
-                    I Am very Thankful to Allah for Making me in love with
-                    the life Right person 💋💖
-                </p>
-
-                <p>
-                    Yeah I know that we are gonna have alot of ups and downs
-                    in our journey but we will stick together with each other
-                    and prove all people's wrong by not giving up insha'Allah
-                    ❣️♥️
-                </p>
-
-                <p>
-                    Yeah i know that sometimes I get jealous Infront of you
-                    but I love you so much that's why I get jealous ♥️💋💞
-                </p>
-
-                <p>
-                    I do that bcz I think that you are mine and I want us to
-                    stay happy with each other 💖☺️ Lots of love ❤️🧬
-                    Enjoy your day ♥️❤️
-                </p>
-
-            </div>
-
-            <button id="doneButton">
-                DONE ❤️
-            </button>
-
-        </div>
-
-    </main>
-
-
-    <script src="script.js"></script>
-
-</body>
-</html>
+            <p>
+                Yeah I know that
