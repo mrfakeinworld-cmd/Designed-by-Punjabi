@@ -11,30 +11,15 @@ body {
     align-items: center;
 }
 
-/* Mobile Constraint Container */
 #app-container {
-    width: 100%;
-    height: 100%;
-    max-width: 480px;
-    position: relative;
-    background: #fff0f3;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    overflow: hidden;
+    width: 100%; height: 100%; max-width: 480px; position: relative;
+    background: #fff0f3; box-shadow: 0 0 20px rgba(0,0,0,0.1); overflow: hidden;
 }
 
-/* Screens */
 .screen {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-    padding: 20px;
-    text-align: center;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.5s ease; padding: 20px; text-align: center;
 }
 .screen.active { opacity: 1; pointer-events: auto; z-index: 10; }
 
@@ -42,59 +27,34 @@ h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: #ff4757; ma
 h2 { font-size: 1.8rem; color: #ff6b81; margin-bottom: 30px; }
 p { font-size: 1.1rem; line-height: 1.6; color: #555; }
 
-/* Buttons */
 .btn {
-    background: #ff4757;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border-radius: 30px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
-    transition: transform 0.2s;
-    cursor: pointer;
+    background: #ff4757; color: white; border: none; padding: 15px 30px;
+    font-size: 1.2rem; border-radius: 30px; font-family: 'Poppins', sans-serif;
+    font-weight: 600; box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+    transition: transform 0.2s; cursor: pointer;
 }
 .btn:active { transform: scale(0.95); }
 
-/* Screen 1: Password */
 .input-group { margin-top: 20px; width: 100%; display: flex; flex-direction: column; gap: 15px; align-items: center; }
 input[type="password"] {
-    padding: 15px;
-    border: 2px solid #ff6b81;
-    border-radius: 15px;
-    font-size: 1.2rem;
-    width: 80%;
-    text-align: center;
-    outline: none;
+    padding: 15px; border: 2px solid #ff6b81; border-radius: 15px;
+    font-size: 1.2rem; width: 80%; text-align: center; outline: none;
 }
 #error-msg { color: #ff4757; font-size: 0.9rem; display: none; font-weight: 600; }
 
-/* Screen 2 & 3: Choice */
 .choices { display: flex; gap: 20px; align-items: center; justify-content: center; position: relative; width: 100%; height: 200px; }
 .btn-yes { background: #2ed573; box-shadow: 0 4px 15px rgba(46, 213, 115, 0.4); z-index: 5; transition: all 0.3s ease; }
 .btn-no { background: #747d8c; box-shadow: 0 4px 15px rgba(116, 125, 140, 0.4); transition: all 0.3s ease; position: relative; z-index: 4;}
 
-/* Screen 3: 3D Box & Cake */
-.scene {
-    width: 200px; height: 200px;
-    perspective: 800px;
-    margin-bottom: 50px;
-}
+.scene { width: 200px; height: 200px; perspective: 800px; margin-bottom: 50px; }
 .box {
-    width: 100%; height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transform: rotateX(-15deg) rotateY(-25deg);
-    transition: transform 1s ease;
+    width: 100%; height: 100%; position: relative; transform-style: preserve-3d;
+    transform: rotateX(-15deg) rotateY(-25deg); transition: transform 1s ease;
 }
 .box-face {
-    position: absolute; width: 150px; height: 150px;
-    background: #ff4757; border: 2px solid #c0392b;
+    position: absolute; width: 150px; height: 150px; background: #ff4757; border: 2px solid #c0392b;
     display: flex; justify-content: center; align-items: center;
-    font-size: 4rem; color: #ffd32a; font-family: 'Dancing Script';
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+    font-size: 4rem; color: #ffd32a; font-family: 'Dancing Script'; box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
 }
 .box-front  { transform: rotateY(  0deg) translateZ(75px); }
 .box-back   { transform: rotateY(180deg) translateZ(75px); }
@@ -102,130 +62,65 @@ input[type="password"] {
 .box-left   { transform: rotateY(-90deg) translateZ(75px); }
 .box-top    { transform: rotateX( 90deg) translateZ(75px); transform-origin: top; transition: transform 1s ease; background: #ff6b81;}
 .box-bottom { transform: rotateX(-90deg) translateZ(75px); }
-
 .box.open .box-top { transform: rotateX(200deg) translateZ(75px); }
 
-/* --- NEW REALISTIC CAKE CSS --- */
+/* CAKE CONTAINER - Fixed 3D Pop Out Bug */
 .cake-container {
-    position: absolute; top: 50px; left: 5px;
-    width: 140px; height: 100px;
-    transform: translateY(50px) scale(0);
-    transition: transform 1.5s ease 0.5s;
-    transform-style: preserve-3d;
+    position: absolute; top: 50px; left: 5px; width: 140px; height: 100px;
+    transform: translateY(50px) translateZ(0px) scale(0);
+    transition: transform 1.5s ease 0.5s; transform-style: preserve-3d;
 }
-.box.open .cake-container { transform: translateY(-90px) scale(1.1); z-index: 20;}
-
-.cake { 
-    position: relative; 
-    width: 140px; 
-    height: 90px; 
-    cursor: pointer; 
-    margin-top: 10px;
+.box.open .cake-container { 
+    transform: translateY(-90px) translateZ(85px) scale(1.1); 
+    z-index: 20;
 }
 
-/* The Silver Plate */
+.cake { position: relative; width: 140px; height: 90px; cursor: pointer; margin-top: 10px; z-index: 50;}
+
 .plate {
-    position: absolute;
-    bottom: -15px;
-    left: -10px;
-    width: 160px;
-    height: 40px;
+    position: absolute; bottom: -15px; left: -10px; width: 160px; height: 40px;
     background: radial-gradient(ellipse, #d1d8e0 40%, #a5b1c2 80%);
-    border-radius: 50%;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+    border-radius: 50%; box-shadow: 0 10px 10px rgba(0,0,0,0.2);
 }
-
-/* Cake Body (Red Velvet / Deep Crimson) */
 .cake-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 140px;
-    height: 60px;
+    position: absolute; bottom: 0; left: 0; width: 140px; height: 60px;
     background: linear-gradient(to right, #b71540, #e55039, #b71540);
-    border-radius: 0 0 50% 50% / 0 0 20px 20px;
-    box-shadow: inset 0 -5px 15px rgba(0,0,0,0.4);
+    border-radius: 0 0 50% 50% / 0 0 20px 20px; box-shadow: inset 0 -5px 15px rgba(0,0,0,0.4);
 }
-
-/* Cake Top (Vanilla Frosting) */
 .cake-top-surface {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 140px;
-    height: 45px;
+    position: absolute; top: 0; left: 0; width: 140px; height: 45px;
     background: radial-gradient(ellipse at center, #ffffff 40%, #f1f2f6 90%);
-    border-radius: 50%;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 50%; box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
 }
-
-/* Frosting Drips */
-.drip {
-    position: absolute;
-    background: #f1f2f6;
-    width: 16px;
-    border-radius: 0 0 10px 10px;
-}
+.drip { position: absolute; background: #f1f2f6; width: 16px; border-radius: 0 0 10px 10px; }
 .drip1 { top: 25px; left: 15px; height: 35px; }
 .drip2 { top: 35px; left: 45px; height: 45px; }
 .drip3 { top: 30px; left: 80px; height: 25px; }
 .drip4 { top: 35px; left: 110px; height: 40px; }
 
-/* Realistic Striped Candle */
 .candle {
-    position: absolute;
-    top: -35px;
-    left: 64px;
-    width: 12px;
-    height: 45px;
-    background: repeating-linear-gradient(
-        45deg,
-        #ffffff,
-        #ffffff 4px,
-        #ff4757 4px,
-        #ff4757 8px
-    );
-    border-radius: 4px;
-    box-shadow: inset -2px 0 5px rgba(0,0,0,0.2);
+    position: absolute; top: -35px; left: 64px; width: 12px; height: 45px;
+    background: repeating-linear-gradient(45deg, #ffffff, #ffffff 4px, #ff4757 4px, #ff4757 8px);
+    border-radius: 4px; box-shadow: inset -2px 0 5px rgba(0,0,0,0.2);
 }
+.candle::before { content: ''; position: absolute; top: -6px; left: 5px; width: 2px; height: 6px; background: #2d3436; }
 
-/* Candle Wick */
-.candle::before {
-    content: '';
-    position: absolute;
-    top: -6px;
-    left: 5px;
-    width: 2px;
-    height: 6px;
-    background: #2d3436;
-}
-
-/* Glowing Flame */
 .flame {
-    position: absolute;
-    top: -24px;
-    left: 2px;
-    width: 8px;
-    height: 20px;
+    position: absolute; top: -24px; left: 2px; width: 8px; height: 20px;
     background: radial-gradient(ellipse at bottom, #ffffff 10%, #feca57 40%, #ff9f43 80%);
     border-radius: 50% 50% 20% 20%;
     box-shadow: 0 0 15px 5px rgba(255, 159, 67, 0.7), 0 0 30px 10px rgba(255, 159, 67, 0.4);
-    animation: flicker 0.4s infinite alternate;
-    transform-origin: bottom;
+    animation: flicker 0.4s infinite alternate; transform-origin: bottom;
 }
 
 @keyframes flicker {
     0% { transform: scale(1) rotate(-2deg); opacity: 0.9; }
     100% { transform: scale(1.1) rotate(2deg); opacity: 1; }
 }
-/* -------------------------------- */
 
-
-/* Screen 4: Cake Interaction */
 #screen-4-content { display: none; flex-direction: column; align-items: center; width:100%; height:100%; justify-content:center;}
 .instruction { font-size: 1.2rem; font-weight: bold; color: #ff4757; margin-top: 150px; margin-bottom: 20px;}
 
-/* Wind Effect */
 .wind {
     position: absolute; top: 40%; left: -100px; width: 50px; height: 5px;
     background: rgba(255,255,255,0.8); border-radius: 50%;
@@ -237,13 +132,9 @@ input[type="password"] {
     100% { transform: translateX(400px) scaleX(3); opacity: 0; }
 }
 
-/* 3D Knife - adjusted position for wider cake */
 .knife {
-    position: absolute; top: -100px; left: 65px;
-    font-size: 4rem; opacity: 0;
-    transform: rotate(-45deg);
-    z-index: 50;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    position: absolute; top: -100px; left: 65px; font-size: 4rem; opacity: 0;
+    transform: rotate(-45deg); z-index: 50; text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 @keyframes cutCake {
     0% { top: -100px; opacity: 1; transform: rotate(-45deg) scale(1.5); }
@@ -251,32 +142,19 @@ input[type="password"] {
     100% { top: 200px; opacity: 0; transform: rotate(-45deg) scale(1.5); }
 }
 
-/* Cut pieces animation */
 @keyframes separateLeft { to { transform: translateX(-20px) rotate(-10deg); } }
 @keyframes separateRight { to { transform: translateX(20px) rotate(10deg); } }
 
-/* Screen 5: Message */
 .letter-container {
-    background: white;
-    padding: 25px 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(255,71,87,0.2);
-    height: 75%;
-    width: 95%;
-    overflow-y: auto;
-    text-align: left;
-    margin-bottom: 20px;
-    border-top: 5px solid #ff4757;
+    background: white; padding: 25px 20px; border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(255,71,87,0.2); height: 75%; width: 95%;
+    overflow-y: auto; text-align: left; margin-bottom: 20px; border-top: 5px solid #ff4757;
 }
 .letter-container p { font-size: 1.05rem; margin-bottom: 15px; color: #2d3436; }
 
 #overlay {
-    position: absolute; top:0; left:0; width:100%; height:100%;
-    background: black; z-index: 1000; display: none;
-    justify-content: center; align-items: center; color: white;
-    font-family: 'Dancing Script', cursive; font-size: 2.5rem;
-    opacity: 0; transition: opacity 2s ease;
+    position: absolute; top:0; left:0; width:100%; height:100%; background: black; z-index: 1000;
+    display: none; justify-content: center; align-items: center; color: white;
+    font-family: 'Dancing Script', cursive; font-size: 2.5rem; opacity: 0; transition: opacity 2s ease;
 }
-
-/* Confetti */
 .confetti { position: absolute; width: 10px; height: 10px; z-index: 999; }
