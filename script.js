@@ -1,8 +1,6 @@
-// Variables for tracking button taps
 let no1Taps = 0;
 let no2Taps = 0;
 
-// Screen 1: Password Check
 function checkPassword() {
     const input = document.getElementById('pass-input').value.trim();
     if(input.toLowerCase() === 'huda') {
@@ -12,16 +10,12 @@ function checkPassword() {
     }
 }
 
-// Screen Transitions
 function nextScreen(num) {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById(`screen-${num}`).classList.add('active');
-    
-    // Trigger confetti only when arriving at the final screen
     if(num === 5) throwConfetti();
 }
 
-// Dynamic 'No' Button Shrink & 'Yes' Button Grow Logic
 function shrinkNo(stage) {
     if(stage === 1) {
         no1Taps++;
@@ -55,7 +49,6 @@ function shrinkNo(stage) {
     }
 }
 
-// 3D Box Opening Animation
 function openBox() {
     document.getElementById('the-box').classList.add('open');
     document.getElementById('cake-q').style.display = 'none';
@@ -66,42 +59,37 @@ function openBox() {
     }, 1500);
 }
 
-// Move Cake from Box to Interaction Area
 function startCakeInteraction() {
     nextScreen(4);
     const cakeDisplay = document.getElementById('cake-display-area');
     const theCake = document.getElementById('cake-body');
     
-    // Transfer the HTML node cleanly to preserve the 3D state
     cakeDisplay.appendChild(theCake);
     document.getElementById('screen-4-content').style.display = 'flex';
-
-    // Add tap event listener to blow candles
     theCake.addEventListener('click', blowCandles, {once: true});
 }
 
-// Wind, Extinguish, and Knife Cut Animation Sequence
 function blowCandles() {
-    // 1. Trigger Wind Animation
     document.getElementById('wind1').style.animation = 'blowWind 1s forwards';
     document.getElementById('wind2').style.animation = 'blowWind 1s forwards 0.2s';
     
-    // 2. Extinguish Candle
     setTimeout(() => {
         document.getElementById('flame').style.display = 'none';
     }, 600);
 
-    // 3. Trigger Knife Cut
     setTimeout(() => {
         const knife = document.getElementById('knife');
         knife.style.animation = 'cutCake 1.5s forwards';
         
-        // 4. Split cake into two pieces
         setTimeout(() => {
             const theCake = document.getElementById('cake-body');
+            
+            // Added webkit fallback to stop iPhone bugs
+            theCake.style.webkitClipPath = 'polygon(0 0, 50% 0, 50% 100%, 0 100%)';
             theCake.style.clipPath = 'polygon(0 0, 50% 0, 50% 100%, 0 100%)';
             
             let rightHalf = theCake.cloneNode(true);
+            rightHalf.style.webkitClipPath = 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)';
             rightHalf.style.clipPath = 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)';
             rightHalf.style.position = 'absolute';
             rightHalf.style.top = '0'; rightHalf.style.left = '0';
@@ -110,17 +98,15 @@ function blowCandles() {
             theCake.style.animation = 'separateLeft 1s forwards';
             rightHalf.style.animation = 'separateRight 1s forwards';
             
-            // 5. Show final button to proceed
             setTimeout(() => {
                 document.getElementById('my-wish-is-btn').style.display = 'block';
             }, 1000);
 
-        }, 750); // Mid-cut timing
+        }, 750); 
         
     }, 1500);
 }
 
-// Final Blackout Screen
 function closeSite() {
     const overlay = document.getElementById('overlay');
     overlay.style.display = 'flex';
@@ -129,7 +115,6 @@ function closeSite() {
     }, 50);
 }
 
-// Confetti Engine
 function throwConfetti() {
     const colors = ['#ff4757', '#2ed573', '#1e90ff', '#ffa502', '#ff6b81'];
     for(let i=0; i<50; i++) {
@@ -146,10 +131,7 @@ function throwConfetti() {
             { transform: `translate3d(0,0,0) rotate(0deg)` },
             { transform: `translate3d(${Math.random()*100 - 50}px, 100vh, 0) rotate(${Math.random()*720}deg)` }
         ], {
-            duration: fallSpeed * 1000,
-            easing: 'linear',
-            iterations: 1,
-            fill: 'forwards'
+            duration: fallSpeed * 1000, easing: 'linear', iterations: 1, fill: 'forwards'
         });
     }
 }
