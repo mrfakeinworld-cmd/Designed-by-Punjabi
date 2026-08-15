@@ -1,0 +1,244 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #120014;
+    color: white;
+}
+
+.screen {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100dvh;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    overflow: hidden;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.content {
+    width: 100%;
+    max-width: 430px;
+}
+
+.heart {
+    font-size: 80px;
+    margin-bottom: 25px;
+}
+
+.gift {
+    font-size: 90px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 1.25;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+input {
+    width: 100%;
+    padding: 16px;
+
+    margin-top: 25px;
+
+    border: none;
+    border-radius: 15px;
+
+    font-size: 18px;
+
+    text-align: center;
+
+    outline: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+
+    padding: 15px 25px;
+
+    border-radius: 50px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    margin-top: 20px;
+
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease,
+        width 0.35s ease,
+        height 0.35s ease;
+}
+
+#passwordButton {
+    display: block;
+    width: 100%;
+}
+
+.choiceArea {
+    position: relative;
+
+    width: 100%;
+    height: 150px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.yesButton {
+    transform: scale(1);
+}
+
+.noButton {
+    transform: scale(1);
+}
+
+#mysteryBox {
+    font-size: 130px;
+    margin-bottom: 20px;
+}
+
+#cakeContainer {
+    font-size: 150px;
+}
+
+#cakeScene {
+    width: 100%;
+    max-width: 430px;
+    text-align: center;
+}
+
+#cakeScene h2 {
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+#wishButton {
+    padding: 18px 30px;
+}
+
+.blowInstruction {
+    margin-top: 25px;
+}
+
+#blowButton {
+    margin-top: 30px;
+}
+
+#cutCake {
+    font-size: 150px;
+}
+
+#knife {
+    font-size: 80px;
+
+    opacity: 0;
+
+    transform: translateX(150px) rotate(-25deg);
+
+    transition:
+        opacity 0.5s ease,
+        transform 1s ease;
+}
+
+#knife.show {
+    opacity: 1;
+    transform: translateX(0) rotate(-25deg);
+}
+
+.messageContainer {
+    width: 100%;
+    max-width: 430px;
+
+    height: 100%;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    overflow-y: auto;
+}
+
+.messageContainer h1 {
+    margin-bottom: 25px;
+}
+
+.letter {
+    text-align: left;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    backdrop-filter: blur(10px);
+}
+
+.letter p {
+    margin-bottom: 18px;
+}
+
+#doneButton {
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+#passwordError {
+    color: #ff6b81;
+    margin-top: 15px;
+    min-height: 25px;
+}
+
+
+/* Prevent the website from becoming a desktop layout */
+
+@media (min-width: 600px) {
+
+    body {
+        background: #050505;
+    }
+
+    .screen {
+        width: 430px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+}
