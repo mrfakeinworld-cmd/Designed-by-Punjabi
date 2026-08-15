@@ -105,42 +105,121 @@ input[type="password"] {
 
 .box.open .box-top { transform: rotateX(200deg) translateZ(75px); }
 
-/* Cake */
+/* --- NEW REALISTIC CAKE CSS --- */
 .cake-container {
-    position: absolute; top: 50px; left: 25px;
-    width: 100px; height: 100px;
+    position: absolute; top: 50px; left: 5px;
+    width: 140px; height: 100px;
     transform: translateY(50px) scale(0);
     transition: transform 1.5s ease 0.5s;
     transform-style: preserve-3d;
 }
-.box.open .cake-container { transform: translateY(-80px) scale(1.5); z-index: 20;}
+.box.open .cake-container { transform: translateY(-90px) scale(1.1); z-index: 20;}
 
-/* 3D-like CSS Cake */
-.cake { position: relative; width: 100px; height: 60px; cursor: pointer; }
-.cake-layer {
-    position: absolute; width: 100px; height: 40px; border-radius: 50%;
-    background: #9b59b6; border: 3px solid #8e44ad;
+.cake { 
+    position: relative; 
+    width: 140px; 
+    height: 90px; 
+    cursor: pointer; 
+    margin-top: 10px;
 }
-.cake-layer.bottom { top: 20px; background: #e056fd; }
-.cake-layer.middle { top: 10px; background: #f0932b; }
-.cake-layer.top { top: 0; background: #ffbe76; }
 
+/* The Silver Plate */
+.plate {
+    position: absolute;
+    bottom: -15px;
+    left: -10px;
+    width: 160px;
+    height: 40px;
+    background: radial-gradient(ellipse, #d1d8e0 40%, #a5b1c2 80%);
+    border-radius: 50%;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+}
+
+/* Cake Body (Red Velvet / Deep Crimson) */
+.cake-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 140px;
+    height: 60px;
+    background: linear-gradient(to right, #b71540, #e55039, #b71540);
+    border-radius: 0 0 50% 50% / 0 0 20px 20px;
+    box-shadow: inset 0 -5px 15px rgba(0,0,0,0.4);
+}
+
+/* Cake Top (Vanilla Frosting) */
+.cake-top-surface {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 140px;
+    height: 45px;
+    background: radial-gradient(ellipse at center, #ffffff 40%, #f1f2f6 90%);
+    border-radius: 50%;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Frosting Drips */
+.drip {
+    position: absolute;
+    background: #f1f2f6;
+    width: 16px;
+    border-radius: 0 0 10px 10px;
+}
+.drip1 { top: 25px; left: 15px; height: 35px; }
+.drip2 { top: 35px; left: 45px; height: 45px; }
+.drip3 { top: 30px; left: 80px; height: 25px; }
+.drip4 { top: 35px; left: 110px; height: 40px; }
+
+/* Realistic Striped Candle */
 .candle {
-    position: absolute; top: -20px; left: 45px;
-    width: 10px; height: 30px; background: #fff;
-    border-radius: 5px; border: 1px solid #ddd;
+    position: absolute;
+    top: -35px;
+    left: 64px;
+    width: 12px;
+    height: 45px;
+    background: repeating-linear-gradient(
+        45deg,
+        #ffffff,
+        #ffffff 4px,
+        #ff4757 4px,
+        #ff4757 8px
+    );
+    border-radius: 4px;
+    box-shadow: inset -2px 0 5px rgba(0,0,0,0.2);
 }
+
+/* Candle Wick */
+.candle::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 5px;
+    width: 2px;
+    height: 6px;
+    background: #2d3436;
+}
+
+/* Glowing Flame */
 .flame {
-    position: absolute; top: -15px; left: 2px;
-    width: 6px; height: 15px; background: #ff9f43;
+    position: absolute;
+    top: -24px;
+    left: 2px;
+    width: 8px;
+    height: 20px;
+    background: radial-gradient(ellipse at bottom, #ffffff 10%, #feca57 40%, #ff9f43 80%);
     border-radius: 50% 50% 20% 20%;
-    box-shadow: 0 0 10px #feca57, 0 0 20px #ff9f43;
-    animation: flicker 0.5s infinite alternate;
+    box-shadow: 0 0 15px 5px rgba(255, 159, 67, 0.7), 0 0 30px 10px rgba(255, 159, 67, 0.4);
+    animation: flicker 0.4s infinite alternate;
+    transform-origin: bottom;
 }
+
 @keyframes flicker {
     0% { transform: scale(1) rotate(-2deg); opacity: 0.9; }
     100% { transform: scale(1.1) rotate(2deg); opacity: 1; }
 }
+/* -------------------------------- */
+
 
 /* Screen 4: Cake Interaction */
 #screen-4-content { display: none; flex-direction: column; align-items: center; width:100%; height:100%; justify-content:center;}
@@ -158,9 +237,9 @@ input[type="password"] {
     100% { transform: translateX(400px) scaleX(3); opacity: 0; }
 }
 
-/* 3D Knife */
+/* 3D Knife - adjusted position for wider cake */
 .knife {
-    position: absolute; top: -100px; left: 50px;
+    position: absolute; top: -100px; left: 65px;
     font-size: 4rem; opacity: 0;
     transform: rotate(-45deg);
     z-index: 50;
@@ -168,7 +247,7 @@ input[type="password"] {
 }
 @keyframes cutCake {
     0% { top: -100px; opacity: 1; transform: rotate(-45deg) scale(1.5); }
-    50% { top: 50px; opacity: 1; transform: rotate(-45deg) scale(1.5); }
+    50% { top: 40px; opacity: 1; transform: rotate(-45deg) scale(1.5); }
     100% { top: 200px; opacity: 0; transform: rotate(-45deg) scale(1.5); }
 }
 
